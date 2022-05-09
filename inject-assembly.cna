@@ -1,19 +1,18 @@
 import beacon.CommandBuilder;
 import common.CommonUtils;
 
-# https://github.com/Tylous/SourcePoint/blob/main/Loader/Loader.go#L134
-sub random_pipe {
-    @pipename_list = @();
-    add(@pipename_list, "SapIServerPipes-1-5-5-0");
-    add(@pipename_list, "epmapper-");
-    add(@pipename_list, "atsvc-");
-    add(@pipename_list, "plugplay+");
-    add(@pipename_list, "srvsvc-1-5-5-0");
-    add(@pipename_list, "W32TIME_ALT_");
-    add(@pipename_list, "tapsrv_");
-    add(@pipename_list, "Printer_Spools_");
+@alphabet = @("a","_","-","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z","A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z");
 
-    return @pipename_list[rand(8)].rand(10).rand(10).rand(10).rand(10);
+sub random_pipe {
+
+    $pipeName = "tapsrv_";
+
+    $len = rand(12);
+
+    for($i = 0; $i < $len; $i++){
+            $pipeName .= rand(@alphabet);
+        }
+    return pipeName;
 }
 
 alias inject-assembly {
